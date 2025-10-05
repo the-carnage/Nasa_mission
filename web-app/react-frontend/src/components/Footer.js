@@ -7,8 +7,7 @@ import {
   Twitter,
   Linkedin,
   Mail,
-  ExternalLink,
-  Heart
+  ExternalLink
 } from 'lucide-react';
 import './Footer.css';
 

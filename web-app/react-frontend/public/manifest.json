@@ -1,0 +1,9 @@
+{
+  "short_name": "NASA Exoplanet",
+  "name": "NASA Exoplanet Discovery Platform",
+  "description": "Interactive platform for exoplanet discovery and analysis using AI",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

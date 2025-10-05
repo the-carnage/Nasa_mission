@@ -2,7 +2,6 @@ import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Calculator, Atom, Zap, Globe, Brain, Copy, BookOpen, Star, Target, Rocket } from 'lucide-react';
 import SimpleCalculator from '../components/SimpleCalculator';
-import InteractiveFormulas from '../components/InteractiveFormulas';
 import './Formulas.css';
 
 // Enhanced formula database with more scientific formulas
