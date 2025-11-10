@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exoplanetary Laboratory - Advanced Planet Explorer</title>
+    <link rel="stylesheet" href="planetVisualizer.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Exoplanetary Laboratory</h1>
+            <p class="subtitle">Explore, Create & Analyze Planets Across the Universe</p>
+        </header>
+
+        <nav class="tab-nav">
+            <button class="tab-btn active" data-tab="solar-system">Solar System</button>
+            <button class="tab-btn" data-tab="exoplanets">Exoplanet Explorer</button>
+            <button class="tab-btn" data-tab="custom">Custom Planet Lab</button>
+            <button class="tab-btn" data-tab="compare">Research Tools</button>
+        </nav>
+
+        <div id="solar-system" class="tab-content active">
+            <div class="controls">
+                <button id="zoomIn" class="control-btn">Zoom In</button>
+                <button id="zoomOut" class="control-btn">Zoom Out</button>
+                <button id="reset" class="control-btn">Reset View</button>
+                <label class="speed-control">
+                    <span>Speed:</span>
+                    <input type="range" id="speedControl" min="0.1" max="3" step="0.1" value="1">
+                    <span id="speedValue">1x</span>
+                </label>
+            </div>
+
+            <div class="main-content">
+                <div class="solar-system-view">
+                    <canvas id="solarSystemCanvas"></canvas>
+                </div>
+
+                <div class="info-panel" id="infoPanel">
+                    <div class="planet-preview" id="planetPreview"></div>
+                    <h2 id="planetName">Select a Planet</h2>
+                    <div class="planet-details" id="planetDetails"></div>
+                    <p class="planet-description" id="planetDescription">
+                        Click on any celestial body to learn more about it.
+                    </p>
+                    <div class="habitability-score" id="habitabilityScore" style="display:none;">
+                        <h3>Habitability Score</h3>
+                        <div class="score-bar">
+                            <div class="score-fill" id="scoreFill"></div>
+                        </div>
+                        <p id="scoreText">0% Habitable</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="exoplanets" class="tab-content">
+            <div class="exoplanet-grid" id="exoplanetGrid"></div>
+        </div>
+
+        <div id="custom" class="tab-content">
+            <div class="custom-lab-grid">
+                <div class="creator-panel">
+                    <h2>Create Your Planet</h2>
+                    <form id="planetForm">
+                        <div class="form-group">
+                            <label>Planet Name</label>
+                            <input type="text" id="customName" placeholder="Enter planet name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Planet Type</label>
+                            <select id="customType">
+                                <option value="Terrestrial">Terrestrial (Rocky)</option>
+                                <option value="Gas Giant">Gas Giant</option>
+                                <option value="Ice Giant">Ice Giant</option>
+                                <option value="Super-Earth">Super-Earth</option>
+                                <option value="Mini-Neptune">Mini-Neptune</option>
+                                <option value="Lava World">Lava World</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Diameter (km): <span id="diameterValue">12000</span></label>
+                            <input type="range" id="customDiameter" min="1000" max="150000" value="12000" step="100">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Distance from Star (million km): <span id="distanceValue">150</span></label>
+                            <input type="range" id="customDistance" min="1" max="5000" value="150" step="1">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Surface Temperature (°C): <span id="tempValue">15</span></label>
+                            <input type="range" id="customTemp" min="-200" max="500" value="15" step="1">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Atmosphere Density: <span id="atmosphereValue">1.0</span></label>
+                            <input type="range" id="customAtmosphere" min="0" max="10" value="1" step="0.1">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Planet Color</label>
+                            <input type="color" id="customColor" value="#4a90e2">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Number of Moons: <span id="moonsValue">1</span></label>
+                            <input type="range" id="customMoons" min="0" max="100" value="1" step="1">
+                        </div>
+
+                        <button type="submit" class="control-btn">Create Planet</button>
+                        <button type="button" id="saveCustom" class="control-btn">Save to Gallery</button>
+                    </form>
+                </div>
+
+                <div class="preview-panel">
+                    <h2>Live Preview</h2>
+                    <div class="custom-preview">
+                        <div class="custom-planet" id="customPlanetPreview"></div>
+                    </div>
+                    <div class="custom-details" id="customDetails"></div>
+                </div>
+            </div>
+
+            <div class="custom-gallery" id="customGallery">
+                <h2>Your Custom Planets</h2>
+                <div class="gallery-grid" id="galleryGrid"></div>
+            </div>
+        </div>
+
+        <div id="compare" class="tab-content">
+            <div class="research-tools">
+                <h2>Comparison & Analysis Tools</h2>
+                
+                <div class="planet-selector-row">
+                    <div class="selector-group">
+                        <label>Select Planet 1:</label>
+                        <select id="comparePlanet1"></select>
+                    </div>
+                    <div class="selector-group">
+                        <label>Select Planet 2:</label>
+                        <select id="comparePlanet2"></select>
+                    </div>
+                    <button class="control-btn" id="compareBtn">Compare</button>
+                </div>
+
+                <div class="comparison-results" id="comparisonResults"></div>
+
+                <div class="chart-section">
+                    <h3>Planet Size Comparison</h3>
+                    <div class="size-chart" id="sizeChart"></div>
+                </div>
+
+                <div class="chart-section">
+                    <h3>Distance from Star Comparison</h3>
+                    <div class="distance-chart" id="distanceChart"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Explore the cosmos, create your worlds, and discover the universe</p>
+        </footer>
+    </div>
+
+    <script src="planetVisualizer.js"></script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Menu, X, Star, Brain, Users, Calculator, Play } from 'lucide-react';
+import { Menu, X, Star, Brain, Users, Calculator, Play, Orbit } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -20,13 +20,12 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Home', path: '/', icon: Star },
-        { name: 'Playground', path: '/playground', icon: Play },
-            { name: 'Formulas', path: '/formulas', icon: Calculator },
-
+    { name: 'Playground', path: '/playground', icon: Play },
+    { name: 'Formulas', path: '/formulas', icon: Calculator },
     { name: 'Solution', path: '/solution', icon: Brain },
-
-      { name: 'Community', path: '/community', icon: Users },
-    {name : "exoplanetVisualizer" , path : "/exoplanetVisualizer" , icon : Calculator}]
+    { name: 'Community', path: '/community', icon: Users },
+    { name: 'Visualizer', path: '/visualizer', icon: Orbit }
+  ];
 
   return (
     <motion.nav
