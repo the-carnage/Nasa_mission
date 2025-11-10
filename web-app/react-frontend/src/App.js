@@ -7,7 +7,7 @@ import Community from './pages/Community';
 import Solution from './pages/Solution';
 import Formulas from './pages/Formulas';
 import Playground from './pages/Playground';
-import PlanetVisualizerPage from './pages/PlanetVisualizerPage';
+import ExoplanetVisualizer from './pages/exoplanetVisualizer';
 import Footer from './components/Footer';
 import './App.css';
 
@@ -27,7 +27,7 @@ function App() {
             <Route path="/solution" element={<Solution />} />
             <Route path="/formulas" element={<Formulas />} />
             <Route path="/playground" element={<Playground />} />
-            <Route path="/visualizer" element={<PlanetVisualizerPage />} />
+            <Route path="/exoplanetVisualizer" element={<ExoplanetVisualizer />} />
           </Routes>
         </motion.main>
         <Footer />
