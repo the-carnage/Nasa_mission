@@ -1,11 +1,11 @@
-# Exoplanet LLM Website
+# ExoPlanet AI Website
 
 A professional space science website built with React.js for the Exoplanet Reasoning LLM project. This website showcases advanced AI capabilities for astronomical discovery and analysis.
 
 ## 🌟 Features
 
 - **Modern React.js Frontend**: Built with React 18, Framer Motion, and modern web technologies
-- **Interactive Playground**: Real-time chat interface with the Exoplanet LLM
+- **ExpoAI**: Real-time chat interface with ExoPlanet AI
 - **Community Hub**: Forums, discussions, and research collaboration
 - **Mathematical Formulas**: Comprehensive database of astronomical equations
 - **Technical Documentation**: Detailed solution architecture and methodology
@@ -18,7 +18,7 @@ A professional space science website built with React.js for the Exoplanet Reaso
 
 - Node.js 16+ and npm
 - Python 3.8+ (for backend API)
-- The Exoplanet LLM backend running on port 8000
+- The ExoPlanet AI backend running on port 8000
 
 ### Installation
 
@@ -107,7 +107,7 @@ The website connects to the Exoplanet LLM API server. Make sure the backend is r
 - Testimonials from researchers
 - Call-to-action sections
 
-### 🎮 Playground
+### 🎮 ExpoAI
 - Interactive chat with the Exoplanet LLM
 - Real-time message streaming
 - Conversation history and export

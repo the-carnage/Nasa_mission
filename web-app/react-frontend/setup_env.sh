@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Exoplanet LLM React Frontend Setup Script
+# ExoPlanet AI React Frontend Setup Script
 
-echo "🌟 Setting up Exoplanet LLM React Frontend..."
+echo "🌟 Setting up ExoPlanet AI React Frontend..."
 
 # Check if Node.js is installed
 if ! command -v node &> /dev/null; then

@@ -60,8 +60,8 @@ const Navbar = () => {
             <Brain className="brain-icon" />
           </div>
           <span className="logo-text">
-            <span className="logo-main">ExpoAI</span>
-            <span className="logo-sub">LLM</span>
+            <span className="logo-main">ExoPlanet</span>
+            <span className="logo-sub">AI</span>
           </span>
         </Link>
 

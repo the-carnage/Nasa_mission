@@ -18,7 +18,7 @@ const Footer = () => {
     product: [
       { name: 'Features', href: '/#features' },
       { name: 'API Documentation', href: '/docs' },
-      { name: 'Playground', href: '/playground' },
+      { name: 'ExpoAI', href: '/playground' },
       { name: 'Pricing', href: '/pricing' },
     ],
     community: [
@@ -60,8 +60,8 @@ const Footer = () => {
                 <Brain className="brain-icon" />
               </div>
               <span className="logo-text">
-                <span className="logo-main">Exoplanet</span>
-                <span className="logo-sub">LLM</span>
+                <span className="logo-main">ExoPlanet</span>
+                <span className="logo-sub">AI</span>
               </span>
             </Link>
             <p className="footer-description">
@@ -149,7 +149,7 @@ const Footer = () => {
         <div className="footer-bottom">
           <div className="footer-bottom-content">
             <p className="footer-copyright">
-              © {currentYear} Exoplanet LLM Research Initiative. In collaboration with NASA, ESA, and international space agencies.<br/>
+              © {currentYear} Exoplanet AI Research Initiative. In collaboration with NASA, ESA, and international space agencies.<br/>
               <span style={{fontSize: '0.75rem', marginTop: '0.5rem', display: 'block', opacity: '0.7'}}>Educational and research purposes. Not for commercial spacecraft navigation.</span>
             </p>
             <div className="footer-bottom-links">

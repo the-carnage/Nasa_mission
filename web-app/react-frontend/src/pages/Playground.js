@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Send,
@@ -30,7 +30,25 @@ const Playground = () => {
     model: 'exoplanet-reasoning-llm'
   });
   const [copiedMessage, setCopiedMessage] = useState(null);
-  const messagesEndRef = useRef(null);
+  const messagesContainerRef = useRef(null);
+
+  const scrollToBottom = useCallback((behavior = 'smooth') => {
+    if (!messagesContainerRef.current) return;
+
+    const container = messagesContainerRef.current;
+    requestAnimationFrame(() => {
+      const nextScrollTop = container.scrollHeight - container.clientHeight;
+
+      if ('scrollTo' in container) {
+        container.scrollTo({
+          top: Math.max(nextScrollTop, 0),
+          behavior
+        });
+      } else {
+        container.scrollTop = Math.max(nextScrollTop, 0);
+      }
+    });
+  }, []);
   
   // Use custom hooks for API integration
   const {
@@ -75,15 +93,18 @@ const Playground = () => {
     }
   ];
 
+  useEffect(() => {
+    if (!messages.length) return;
 
+    const behavior = messages.length === 1 ? 'auto' : 'smooth';
+    const timeoutId = setTimeout(() => scrollToBottom(behavior), 100);
+
+    return () => clearTimeout(timeoutId);
+  }, [messages, scrollToBottom]);
 
   useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+    scrollToBottom('auto');
+  }, [scrollToBottom]);
 
   const sendMessage = async (messageText = input) => {
     if (!messageText.trim() || isLoading) return;
@@ -135,7 +156,7 @@ const Playground = () => {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `exoplanet-llm-conversation-${Date.now()}.json`;
+    a.download = `exoplanet-ai-conversation-${Date.now()}.json`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -154,7 +175,7 @@ const Playground = () => {
                 <Brain className="brain-icon" />
               </div>
               <div className="title-text">
-                <h1>Exoplanet LLM Playground</h1>
+                <h1>ExpoAI</h1>
                 <p>Interactive AI for astronomical discovery and analysis</p>
               </div>
             </div>
@@ -231,7 +252,32 @@ const Playground = () => {
 
           {/* Chat Area */}
           <div className="playground-chat">
-            <div className="chat-messages">
+            <div className="chat-messages" ref={messagesContainerRef}>
+              {messages.length === 0 && !isLoading && (
+                <div className="chat-empty-state">
+                  <div className="empty-state-icon">
+                    <Star size={36} className="icon-star" />
+                    <Brain size={36} className="icon-brain" />
+                  </div>
+                  <h2>Welcome to ExpoAI</h2>
+                  <p>
+                    Your specialized copilot for exoplanet science. Ask anything about detection methods, habitable zones, or space missions.
+                  </p>
+                  <div className="empty-state-prompts">
+                    {suggestions.slice(0, 3).map((suggestion, index) => (
+                      <button
+                        key={suggestion}
+                        onClick={() => sendMessage(suggestion)}
+                        className="empty-state-chip"
+                        disabled={isLoading}
+                      >
+                        <span className="chip-index">{index + 1}</span>
+                        {suggestion}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
               <AnimatePresence>
                 {messages.map((message) => (
                   <motion.div
@@ -252,7 +298,7 @@ const Playground = () => {
                     <div className="message-content">
                       <div className="message-header">
                         <span className="message-role">
-                          {message.type === 'user' ? 'You' : 'Exoplanet LLM'}
+                          {message.type === 'user' ? 'You' : 'Exoplanet AI'}
                         </span>
                         <span className="message-time">
                           {new Date(message.timestamp).toLocaleTimeString()}
@@ -317,8 +363,6 @@ const Playground = () => {
                   </div>
                 </motion.div>
               )}
-              
-              <div ref={messagesEndRef} />
             </div>
 
             <div className="chat-input">

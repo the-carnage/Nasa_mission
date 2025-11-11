@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Exoplanet LLM Website Startup Script
+# ExoPlanet AI Website Startup Script
 
-echo "🌟 Starting Exoplanet LLM Website..."
+echo "🌟 Starting ExoPlanet AI Website..."
 
 # Check if Node.js is installed
 if ! command -v node &> /dev/null; then
@@ -30,7 +30,7 @@ else
     echo "⚠️  Backend API is not running. Please start it with:"
     echo "   cd ../deployment && python api_server.py --model ../outputs/cpu_model"
     echo ""
-    echo "   The website will still work, but the playground will show connection errors."
+    echo "   The website will still work, but the ExpoAI page will show connection errors."
 fi
 
 # Set environment variables

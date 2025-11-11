@@ -161,7 +161,7 @@ const Home = () => {
             
             <h1 className="hero-title">
               Discover the Universe with
-              <span className="gradient-text"> Exoplanet LLM</span>
+              <span className="gradient-text"> Exoplanet AI</span>
             </h1>
             
             <p className="hero-description">
@@ -178,7 +178,7 @@ const Home = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Play size={20} />
-                Try Playground
+                Try ExpoAI
                 <ArrowRight size={16} />
               </motion.a>
               
@@ -225,7 +225,7 @@ const Home = () => {
             viewport={{ once: true }}
           >
             <h2 className="section-title">
-              Why Choose <span className="gradient-text">Exoplanet LLM</span>?
+              Why Choose <span className="gradient-text">Exoplanet AI</span>?
             </h2>
             <p className="section-description">
               Our AI model combines cutting-edge technology with specialized astronomical knowledge 
@@ -363,7 +363,7 @@ const Home = () => {
               Trusted by <span className="gradient-text">Researchers</span>
             </h2>
             <p className="section-description">
-              See what leading scientists and researchers say about Exoplanet LLM.
+              See what leading scientists and researchers say about Exoplanet AI.
             </p>
           </motion.div>
 
@@ -411,7 +411,7 @@ const Home = () => {
             </h2>
             <p className="cta-description">
               Join thousands of researchers, students, and space enthusiasts 
-              using Exoplanet LLM to advance astronomical knowledge.
+              using Exoplanet AI to advance astronomical knowledge.
             </p>
             <div className="cta-actions">
               <motion.a

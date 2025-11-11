@@ -1,4 +1,4 @@
-// API service for Exoplanet LLM backend integration
+// API service for Exoplanet AI backend integration
 import geminiApi from './geminiApi';
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
