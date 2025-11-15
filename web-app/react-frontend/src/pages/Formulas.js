@@ -7,23 +7,6 @@ import './Formulas.css';
 // Enhanced formula database with more scientific formulas
 const FORMULAS_DATABASE = [
   {
-    id: 1,
-    title: "Novel AI Feedback Weight Formula",
-    category: "machine-learning",
-    difficulty: "advanced",
-    formula: "w₍ᵢ₎ ← w₍ᵢ₎ - η∂L/∂w₍ᵢ₎ where L = -h log P - (1-h) log(1-P)",
-    description: "Revolutionary formula for dynamically adjusting AI model weights based on human feedback and prediction accuracy in exoplanet discovery.",
-    variables: [
-      { symbol: "w₍ᵢ₎", name: "Reliability Weight", unit: "dimensionless" },
-      { symbol: "η", name: "Learning Rate", unit: "dimensionless" },
-      { symbol: "L", name: "Binary Cross-Entropy Loss", unit: "dimensionless" },
-      { symbol: "h", name: "Human Feedback", unit: "binary (0/1)" },
-      { symbol: "P", name: "Prediction Confidence", unit: "probability (0-1)" }
-    ],
-    explanation: "This novel formula enables AI systems to learn from human expert feedback, continuously improving their reliability in identifying exoplanets.",
-    applications: ["Exoplanet Detection", "AI Training", "Expert Systems", "Machine Learning"]
-  },
-  {
     id: 2,
     title: "Radial Velocity (Doppler Shift)",
     category: "astronomy",
@@ -111,7 +94,6 @@ const Formulas = () => {
 
   const categories = [
     { id: 'all', name: 'All Formulas', icon: BookOpen, count: FORMULAS_DATABASE.length },
-    { id: 'machine-learning', name: 'AI & ML', icon: Brain, count: FORMULAS_DATABASE.filter(f => f.category === 'machine-learning').length },
     { id: 'astronomy', name: 'Astronomy', icon: Star, count: FORMULAS_DATABASE.filter(f => f.category === 'astronomy').length },
     { id: 'physics', name: 'Physics', icon: Atom, count: FORMULAS_DATABASE.filter(f => f.category === 'physics').length },
     { id: 'astrobiology', name: 'Astrobiology', icon: Target, count: FORMULAS_DATABASE.filter(f => f.category === 'astrobiology').length }
