@@ -213,7 +213,6 @@ class AIHelper:
     
     def _generate_explanation(self, data: Dict[str, Any], features: List[float], 
                             prediction: float) -> Dict[str, Any]:
-        """Generate explainable AI output"""
         explanation = {
             'prediction_reasoning': self._get_prediction_reasoning(prediction),
             'key_factors': self._identify_key_factors(features, prediction),
@@ -235,10 +234,9 @@ class AIHelper:
             return "Not an exoplanet - signal characteristics inconsistent with planetary transit"
     
     def _identify_key_factors(self, features: List[float], prediction: float) -> Dict[str, float]:
-        """Identify which features most influenced the prediction"""
+
         feature_names = self._get_feature_names()
-        
-        # Simple feature importance (in real implementation, use SHAP or similar)
+
         importance = np.random.rand(len(features))  # Placeholder
         importance = importance / np.sum(importance)
         
